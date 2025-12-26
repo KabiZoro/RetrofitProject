@@ -1,6 +1,6 @@
 package com.kabi.retrofitproject.data.di
 
-import com.kabi.retrofitproject.data.ApiService
+import com.kabi.retrofitproject.data.WeatherApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -22,10 +22,10 @@ val networkModule = module {
     }
     single {
         Retrofit.Builder()
-            .baseUrl("https://newsdata.io/api/1/")
+            .baseUrl("https://api.weatherapi.com/v1/")
             .client(get())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(ApiService::class.java)
+            .create(WeatherApiService::class.java)
     }
 }
