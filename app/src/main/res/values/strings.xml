@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">RetrofitProject</string>
+    <string name="error_network_request_timeout">The request timed out</string>
+    <string name="error_network_too_many_requests">Too many requests</string>
+    <string name="error_network_no_internet">No internet connection</string>
+    <string name="error_network_payload_too_large">Payload too large</string>
+    <string name="error_network_server_error">Server error</string>
+    <string name="error_network_serialization">Serialization error</string>
+    <string name="error_network_unknown">Unknown error</string>
+    <string name="error_local_disk_full">Disk full</string>
+    <string name="unauthorised">UnAuthorised error</string>
 </resources>
