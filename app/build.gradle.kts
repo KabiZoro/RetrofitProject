@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotzilla)
 }
 
 android {
@@ -51,6 +52,9 @@ android {
         compose = true
         buildConfig = true
     }
+    kotzilla {
+        composeInstrumentation = true
+    }
 }
 
 dependencies {
@@ -62,6 +66,7 @@ dependencies {
 
     implementation(libs.bundles.retrofit)
     implementation(libs.bundles.koin)
+    implementation(libs.kotzilla.sdk.compose)
 
     implementation(libs.androidx.lifecycle.viewmodel.compose)
 

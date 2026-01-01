@@ -2,22 +2,17 @@ package com.kabi.retrofitproject.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.google.gson.JsonSyntaxException
-import com.kabi.retrofitproject.data.WeatherApiService
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import com.kabi.retrofitproject.BuildConfig
-import com.kabi.retrofitproject.domain.DataError
 import com.kabi.retrofitproject.domain.Result
-import retrofit2.HttpException
-import java.io.IOException
+import com.kabi.retrofitproject.domain.WeatherRepository
 
 class WeatherViewModel(
-    private val weatherApiService: WeatherApiService
+    private val weatherRepository: WeatherRepository
 ) : ViewModel() {
 
     private var hasLoadedInitialData = false
@@ -27,7 +22,7 @@ class WeatherViewModel(
         .onStart {
             if (!hasLoadedInitialData) {
                 /** Load initial data here **/
-//                onAction(WeatherAction.LoadWeather("Chennai"))
+//                onAction(WeatherAction.LoadWeather("Tokyo"))
                 hasLoadedInitialData = true
             }
         }
@@ -48,7 +43,11 @@ class WeatherViewModel(
             }
 
             is WeatherAction.OnSearchQueryChange -> {
-                _state.update { it.copy(searchQuery = action.query) }
+                _state.update {
+                    it.copy(
+                        searchQuery = action.query
+                    )
+                }
             }
         }
     }
@@ -61,37 +60,11 @@ class WeatherViewModel(
                     weatherResult = Result.Loading
                 )
             }
-            try {
-                val response = weatherApiService.getWeather(
-                    apikey = BuildConfig.WEATHER_API_KEY,
-                    city = city
+            val result = weatherRepository.getWeatherData(city)
+            _state.update {
+                it.copy(
+                    weatherResult = result
                 )
-                _state.update {
-                    it.copy(
-                        weatherResult = Result.Success(response)
-                    )
-                }
-            } catch (e: Exception) {
-                val networkError = when(e){
-                    is HttpException -> {
-                        when(e.code()) {
-                            401 -> DataError.Network.UNAUTHORISED
-                            408 -> DataError.Network.REQUEST_TIMEOUT
-                            413 -> DataError.Network.PAYLOAD_TOO_LARGE
-                            429 -> DataError.Network.TOO_MANY_REQUESTS
-                            in 500..599 -> DataError.Network.SERVER_ERROR
-                            else -> DataError.Network.UNKNOWN
-                        }
-                    }
-                    is IOException -> DataError.Network.NO_INTERNET
-                    is JsonSyntaxException -> DataError.Network.SERIALIZATION
-                    else -> DataError.Network.UNKNOWN
-                }
-                _state.update {
-                    it.copy(
-                        weatherResult = Result.Error(networkError)
-                    )
-                }
             }
         }
     }

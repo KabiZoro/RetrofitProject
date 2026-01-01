@@ -20,3 +20,5 @@ local.properties
 *.keystore
 .idea/shelf/
 .idea/navEditor.xml
+/app/kotzilla.json
+/app/src/main/assets/kotzilla.key
