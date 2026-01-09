@@ -1,4 +1,4 @@
-package com.kabi.retrofitproject.ui.theme
+package com.kabi.retrofitproject.core.presentation.designsystem.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -1,4 +1,4 @@
-package com.kabi.retrofitproject.presentation
+package com.kabi.retrofitproject.weather.presentation
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -44,14 +44,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
-import com.kabi.retrofitproject.ui.theme.RetrofitProjectTheme
-import com.kabi.retrofitproject.domain.Result
-import com.kabi.retrofitproject.domain.model.WeatherResponse
-import com.kabi.retrofitproject.presentation.util.asUiText
-import com.kabi.retrofitproject.ui.theme.Black
-import com.kabi.retrofitproject.ui.theme.DarkGray
-import com.kabi.retrofitproject.ui.theme.DarkPurple
-import com.kabi.retrofitproject.ui.theme.Purple
+import com.kabi.retrofitproject.core.presentation.designsystem.theme.RetrofitProjectTheme
+import com.kabi.retrofitproject.core.presentation.designsystem.theme.Black
+import com.kabi.retrofitproject.core.presentation.designsystem.theme.DarkGray
+import com.kabi.retrofitproject.core.presentation.designsystem.theme.DarkPurple
+import com.kabi.retrofitproject.core.presentation.designsystem.theme.Purple
+import com.kabi.retrofitproject.weather.domain.model.WeatherResponse
+import com.kabi.retrofitproject.weather.domain.Result
+import com.kabi.retrofitproject.weather.presentation.util.asUiText
 import org.koin.androidx.compose.koinViewModel
 
 @Composable

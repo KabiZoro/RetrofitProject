@@ -1,6 +1,6 @@
-package com.kabi.retrofitproject.data
+package com.kabi.retrofitproject.weather.data
 
-import com.kabi.retrofitproject.domain.model.WeatherResponse
+import com.kabi.retrofitproject.weather.domain.model.WeatherResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

@@ -1,14 +1,12 @@
 package com.kabi.retrofitproject.app.di
 
-import com.kabi.retrofitproject.data.WeatherRepositoryImpl
-import com.kabi.retrofitproject.domain.WeatherRepository
-import com.kabi.retrofitproject.presentation.WeatherViewModel
-import org.koin.core.module.dsl.bind
-import org.koin.core.module.dsl.singleOf
-import org.koin.core.module.dsl.viewModelOf
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
 import org.koin.dsl.module
 
 val appModule = module {
-    singleOf(::WeatherRepositoryImpl) { bind<WeatherRepository>() }
-    viewModelOf(::WeatherViewModel)
+    single<CoroutineScope> {
+        CoroutineScope(SupervisorJob() + Dispatchers.Main)
+    }
 }

@@ -6,8 +6,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.kabi.retrofitproject.presentation.WeatherRoot
-import com.kabi.retrofitproject.ui.theme.RetrofitProjectTheme
+import com.kabi.retrofitproject.core.presentation.designsystem.theme.RetrofitProjectTheme
+import com.kabi.retrofitproject.weather.presentation.WeatherRoot
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

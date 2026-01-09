@@ -1,4 +1,4 @@
-package com.kabi.retrofitproject.ui.theme
+package com.kabi.retrofitproject.core.presentation.designsystem.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme

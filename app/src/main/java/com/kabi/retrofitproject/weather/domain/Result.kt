@@ -1,4 +1,4 @@
-package com.kabi.retrofitproject.domain
+package com.kabi.retrofitproject.weather.domain
 
 typealias RootError = Error
 

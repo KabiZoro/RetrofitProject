@@ -1,17 +1,20 @@
-package com.kabi.retrofitproject.data
+package com.kabi.retrofitproject.weather.data
 
 import android.net.http.HttpException
+import android.os.Build
+import androidx.annotation.RequiresExtension
 import com.google.gson.JsonSyntaxException
 import com.kabi.retrofitproject.BuildConfig
-import com.kabi.retrofitproject.domain.DataError
-import com.kabi.retrofitproject.domain.Result
-import com.kabi.retrofitproject.domain.WeatherRepository
-import com.kabi.retrofitproject.domain.model.WeatherResponse
+import com.kabi.retrofitproject.weather.domain.Result
+import com.kabi.retrofitproject.weather.domain.DataError
+import com.kabi.retrofitproject.weather.domain.WeatherRepository
+import com.kabi.retrofitproject.weather.domain.model.WeatherResponse
 import java.io.IOException
 
 class WeatherRepositoryImpl(
     private val weatherApiService: WeatherApiService
 ): WeatherRepository {
+    @RequiresExtension(extension = Build.VERSION_CODES.S, version = 7)
     override suspend fun getWeatherData(city: String): Result<WeatherResponse, DataError.Network> {
         return try {
             val response = weatherApiService.getWeather(

@@ -1,15 +1,15 @@
-package com.kabi.retrofitproject.presentation
+package com.kabi.retrofitproject.weather.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.kabi.retrofitproject.weather.domain.Result
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import com.kabi.retrofitproject.domain.Result
-import com.kabi.retrofitproject.domain.WeatherRepository
+import com.kabi.retrofitproject.weather.domain.WeatherRepository
 
 class WeatherViewModel(
     private val weatherRepository: WeatherRepository

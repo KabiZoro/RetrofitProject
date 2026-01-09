@@ -1,6 +1,6 @@
-package com.kabi.retrofitproject.data.di
+package com.kabi.retrofitproject.weather.data.di
 
-import com.kabi.retrofitproject.data.WeatherApiService
+import com.kabi.retrofitproject.weather.data.WeatherApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module

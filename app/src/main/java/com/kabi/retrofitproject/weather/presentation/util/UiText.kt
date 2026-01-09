@@ -1,4 +1,4 @@
-package com.kabi.retrofitproject.presentation.util
+package com.kabi.retrofitproject.weather.presentation.util
 
 import android.content.Context
 import androidx.annotation.StringRes

@@ -1,4 +1,4 @@
-package com.kabi.retrofitproject.ui.theme
+package com.kabi.retrofitproject.core.presentation.designsystem.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

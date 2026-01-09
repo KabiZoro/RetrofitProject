@@ -1,4 +1,4 @@
-package com.kabi.retrofitproject.domain
+package com.kabi.retrofitproject.weather.domain
 
 sealed interface DataError : Error {
     enum class Network : DataError {

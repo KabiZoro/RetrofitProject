@@ -1,4 +1,4 @@
-package com.kabi.retrofitproject.domain.model
+package com.kabi.retrofitproject.weather.domain.model
 
 data class WeatherResponse(
     val current: Current,

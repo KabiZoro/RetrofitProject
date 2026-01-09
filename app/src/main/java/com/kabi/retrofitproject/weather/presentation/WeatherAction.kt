@@ -1,4 +1,4 @@
-package com.kabi.retrofitproject.presentation
+package com.kabi.retrofitproject.weather.presentation
 
 sealed interface WeatherAction {
     data class OnSearchQueryChange(val query: String) : WeatherAction

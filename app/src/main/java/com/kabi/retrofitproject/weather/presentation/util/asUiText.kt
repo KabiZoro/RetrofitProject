@@ -1,9 +1,8 @@
-package com.kabi.retrofitproject.presentation.util
+package com.kabi.retrofitproject.weather.presentation.util
 
 import com.kabi.retrofitproject.R
-import com.kabi.retrofitproject.domain.DataError
-import com.kabi.retrofitproject.domain.Result
-import com.kabi.retrofitproject.presentation.util.UiText.*
+import com.kabi.retrofitproject.weather.domain.DataError
+import com.kabi.retrofitproject.weather.domain.Result
 
 fun Result.Error<*, DataError>.asUiText(): UiText {
     return error.asUiText()
@@ -12,55 +11,55 @@ fun Result.Error<*, DataError>.asUiText(): UiText {
 fun DataError.asUiText(): UiText {
     return when (this) {
         DataError.Network.REQUEST_TIMEOUT -> {
-            StringResource(
+            UiText.StringResource(
                 R.string.error_network_request_timeout
             )
         }
 
         DataError.Network.TOO_MANY_REQUESTS -> {
-            StringResource(
+            UiText.StringResource(
                 R.string.error_network_too_many_requests
             )
         }
 
         DataError.Network.NO_INTERNET -> {
-            StringResource(
+            UiText.StringResource(
                 R.string.error_network_no_internet
             )
         }
 
         DataError.Network.PAYLOAD_TOO_LARGE -> {
-            StringResource(
+            UiText.StringResource(
                 R.string.error_network_payload_too_large
             )
         }
 
         DataError.Network.SERVER_ERROR -> {
-            StringResource(
+            UiText.StringResource(
                 R.string.error_network_server_error
             )
         }
 
         DataError.Network.SERIALIZATION -> {
-            StringResource(
+            UiText.StringResource(
                 R.string.error_network_serialization
             )
         }
 
         DataError.Network.UNAUTHORISED -> {
-            StringResource(
+            UiText.StringResource(
                 R.string.unauthorised
             )
         }
 
         DataError.Network.UNKNOWN -> {
-            StringResource(
+            UiText.StringResource(
                 R.string.error_network_unknown
             )
         }
 
         DataError.Local.DISK_FULL -> {
-            StringResource(
+            UiText.StringResource(
                 R.string.error_local_disk_full
             )
         }
