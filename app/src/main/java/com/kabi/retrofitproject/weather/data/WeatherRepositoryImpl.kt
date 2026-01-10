@@ -1,6 +1,5 @@
 package com.kabi.retrofitproject.weather.data
 
-import android.net.http.HttpException
 import android.os.Build
 import androidx.annotation.RequiresExtension
 import com.google.gson.JsonSyntaxException
@@ -9,6 +8,7 @@ import com.kabi.retrofitproject.weather.domain.Result
 import com.kabi.retrofitproject.weather.domain.DataError
 import com.kabi.retrofitproject.weather.domain.WeatherRepository
 import com.kabi.retrofitproject.weather.domain.model.WeatherResponse
+import retrofit2.HttpException
 import java.io.IOException
 
 class WeatherRepositoryImpl(
@@ -25,6 +25,7 @@ class WeatherRepositoryImpl(
         } catch (e: Exception) {
             val networkError = when (e) {
                 is HttpException -> when (e.hashCode()) {
+                    400 -> DataError.Network.CITY_NOT_FOUND
                     401 -> DataError.Network.UNAUTHORISED
                     408 -> DataError.Network.REQUEST_TIMEOUT
                     413 -> DataError.Network.PAYLOAD_TOO_LARGE

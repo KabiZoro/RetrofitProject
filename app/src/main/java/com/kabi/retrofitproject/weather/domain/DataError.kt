@@ -9,6 +9,7 @@ sealed interface DataError : Error {
         SERVER_ERROR,
         SERIALIZATION,
         UNAUTHORISED,
+        CITY_NOT_FOUND,
         UNKNOWN
     }
 

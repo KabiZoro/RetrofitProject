@@ -9,4 +9,5 @@
     <string name="error_network_unknown">Unknown error</string>
     <string name="error_local_disk_full">Disk full</string>
     <string name="unauthorised">UnAuthorised error</string>
+    <string name="error_city_not_found">The city name was not found.</string>
 </resources>
