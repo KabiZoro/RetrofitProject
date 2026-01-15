@@ -59,15 +59,19 @@ android {
 
 dependencies {
 
+    // coil
     implementation(libs.coil.compose)
 
+    // icons
     implementation(libs.androidx.compose.material.icons.core)
     implementation(libs.androidx.compose.material.icons.extended)
 
+    // retrofit, koin, kotzilla
     implementation(libs.bundles.retrofit)
     implementation(libs.bundles.koin)
     implementation(libs.kotzilla.sdk.compose)
 
+    // viewmodel
     implementation(libs.androidx.lifecycle.viewmodel.compose)
 
     implementation(libs.androidx.core.ktx)
