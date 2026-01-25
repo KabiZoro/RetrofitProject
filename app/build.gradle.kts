@@ -10,9 +10,7 @@ plugins {
 
 android {
     namespace = "com.kabi.retrofitproject"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.kabi.retrofitproject"
